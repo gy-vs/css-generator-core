@@ -803,6 +803,102 @@
             }
         }
     },
+    "raw prelude with type and id selectors should be kept as is": {
+        "options": {
+            "parseRulePrelude": false
+        },
+        "source": "span#foo{color:red}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "Raw",
+                "value": "span#foo"
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "red"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "raw prelude with type and class selectors should be kept as is": {
+        "options": {
+            "parseRulePrelude": false
+        },
+        "source": "li.item{color:red}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "Raw",
+                "value": "li.item"
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "red"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "raw prelude with a descendant combinator should be kept as is": {
+        "options": {
+            "parseRulePrelude": false
+        },
+        "source": "span  #foo{color:red}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "Raw",
+                "value": "span  #foo"
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "red"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
     "unclosed block": {
         "source": "selector { ",
         "generate": "selector{}",

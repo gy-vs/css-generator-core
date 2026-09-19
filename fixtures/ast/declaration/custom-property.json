@@ -375,6 +375,18 @@
             }
         }
     ],
+    "raw value with adjacent tokens should be kept as is": {
+        "source": "--a:1%var(--b)#ff0000",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--a",
+            "value": {
+                "type": "Raw",
+                "value": "1%var(--b)#ff0000"
+            }
+        }
+    },
     "error": [
         {
             "source": "--var: !important ()",
